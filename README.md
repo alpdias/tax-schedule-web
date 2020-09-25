@@ -14,7 +14,7 @@ pt-BR</br>
 
 </br>
 
-![agenda-tributaria-resultado]()
+![agenda-tributaria-resultado](https://github.com/alpdias/web-app-agenda-tributaria-public/blob/master/agenda/static/img/agenda-tributaria-resultado.png)
 
 </br>
 
@@ -50,7 +50,7 @@ pt-BR</br>
 
 </br>
 
-![agenda-tributaria-resultado]()
+![agenda-tributaria-resultado](https://github.com/alpdias/web-app-agenda-tributaria-public/blob/master/agenda/static/img/agenda-tributaria-resultado.png)
 
 </br>
 

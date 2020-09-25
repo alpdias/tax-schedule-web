@@ -18,7 +18,7 @@ pt-BR</br>
 
 </br>
 
-<strong>Tecnologias:</strong> #python #django #javascript #html #css
+<strong>Tecnologias:</strong> #python #django #javascript #html #css #jquery
 
 </br>
 
@@ -54,7 +54,7 @@ pt-BR</br>
 
 </br>
 
-<strong>Technology:</strong> #python #django #javascript #html #css
+<strong>Technology:</strong> #python #django #javascript #html #css #jquery
 
 </br>
 

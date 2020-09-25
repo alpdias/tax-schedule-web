@@ -1,0 +1,22 @@
+<!--
+Criado em 09/2020
+@Autor: Paulo https://github.com/alpdias
+-->
+
+{% extends 'base.html' %}
+{% block title %}Contato{% endblock %}
+{% block mapa %}<a href="/" id="link-navegacao">Agenda Tributária</a><strong>&nbsp; > &nbsp;</strong>Contato{% endblock %}
+{% block code %}
+<main id="contato-pagina">
+    <header>Entre em contato...</header>
+    <span id="msg-contato" style="display: none;">{{ sucesso }}</span>
+    <div id="contato-sucesso"></div>
+    <section id="contato">
+        <form method="POST">
+            {% csrf_token %}
+            <div id="carregar-contato"></div>
+        </form>   
+    </section>
+</main>
+{% endblock %}
+{% block class %}rodape-paginas{% endblock %}

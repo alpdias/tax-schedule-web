@@ -1,0 +1,552 @@
+@charset "UTF-8";
+
+/*
+Criado em 09/2020
+@Autor: Paulo https://github.com/alpdias
+*/
+
+/* FONTES */
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Open+Sans&display=swap');
+
+@font-face {
+    font-family: 'Luckiest Guy', cursive;
+    src: url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Open+Sans&display=swap');
+}
+
+/* RESETS DO HTML */
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* PRE-LOAD */
+#carregando-fora {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+}
+
+#carregamento-dentro {
+    display: table;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #1659BF;
+    background-color: rgba(0, 0, 0, 0.527)
+}
+
+#carregamento-interno {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 32px;
+}
+
+/* GERAL */
+body {
+    background-color: #ffffff;
+}
+
+#aplicativo {
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* CABECALHO */
+#cabecalho-base {
+    font-family: 'Luckiest Guy', cursive;
+    background-color: #1659BF;
+    color: #ffffff;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#cabecalho-base h1 {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 52px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 30px;
+}
+
+#cabecalho-base p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    margin-top: 0px;
+    padding-bottom: 15px;
+}
+
+#link-navegacao {
+    color: #ffffff;
+    text-decoration: none;
+    text-decoration-style: none;
+}
+
+/* ENTRADA DE DADOS*/
+.selecoes {
+    border-radius: 6px;
+    padding: 2px;
+    box-shadow: 1px 1px 2px #00000080;
+}
+
+#entrada-dados p {
+    font-family: 'Open Sans', sans-serif;
+    max-width: 500px;
+    margin: 0 auto;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#formulario-entrada {
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgba(128, 128, 128, 0.712);
+    max-width: 745px;
+    margin: 0 auto 15px auto;
+    padding-bottom: 15px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px #00000080;
+}
+
+#opcoes, #tipos, #empresas {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#formulario-entrada input, select:hover {
+    cursor: pointer;
+}
+
+#formulario-entrada button {
+    background-color: rgba(255, 0, 0, 0.767);
+    color: #ffffff;
+    font-weight: bolder;
+    padding: 5px 15px 5px 15px;
+    border-radius: 6px;
+    border-style: none;
+    box-shadow: 2px 2px 2px #00000080;   
+}
+
+#formulario-entrada button:hover {
+    cursor: pointer;
+}
+
+#observacao {
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(253, 253, 253);
+    background-color: rgb(255, 60, 60);
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 6px;
+    font-size: 12px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* SAIDA */
+#texto-resultado {
+    display: block;
+    margin: 0 auto;
+    max-width: 745px;
+}
+
+#resultado {
+    display: block;
+    max-width: 100%;
+}
+
+#verificar-link {
+    font-size: 14px;
+    max-width: 500px;
+    margin: 0 auto;
+    color: green;
+    padding-top: 6px;
+}
+
+#baixar {
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgba(37, 158, 37, 0.938);
+    color: #ffffff;
+    font-weight: bolder;
+    margin-top: 15px;
+    padding: 5px 10px 5px 15px;
+    border-radius: 6px;
+    border-style: none;
+    box-shadow: 2px 2px 2px #00000080;
+}
+
+#baixar:hover {
+    cursor: pointer;
+}
+
+/* TEXTO/CORPO */
+.texto-corpo {
+    max-width: 745px;
+    margin: 0 auto;
+}
+
+.texto-corpo h1 {
+    font-family: 'Luckiest Guy', cursive;
+    padding-top: 30px;
+}
+
+.texto-corpo h2 {
+    font-family: 'Luckiest Guy', cursive;
+}
+
+.texto-corpo h3 {
+    text-align: left;
+}
+
+.texto-corpo p, h3 {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 22px;
+}
+
+.texto-corpo li {
+    list-style: none;
+    text-decoration: none;
+    text-decoration-style: none;
+    border-left: 6px solid #1659BF;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bolder;
+}
+
+.tabulacao {
+    display: block;
+    padding-top: 30px;
+}
+
+#tutorial h3::first-letter {
+    list-style: none;
+    text-decoration: none;
+    text-decoration-style: none;
+    border-left: 6px solid #1659BF;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#tags-site {
+    font-family: 'Open Sans', sans-serif;
+    color: gray;
+    font-size: 12px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#observacao-vermelho {
+    color: red;
+}
+
+#seta-retorno {
+    font-size: 20px;
+    text-decoration: none;
+    text-decoration-style: none;
+}
+
+#seta-retorno i {
+    color: #1659BF;
+    font-size: 40px;
+}
+
+
+/* IMAGENS */
+.img-tutorial {
+    box-shadow: 1px 1px 2px #00000080;
+}
+
+/* RODAPE */
+.rodape-adicionais {
+    display: block;
+    margin-bottom: 1px;
+    margin-top: 1px;
+}
+
+#rodape-base {
+    background-color: #1659BF;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: bolder;
+    color: #ffffff;
+    padding-top: 15px; 
+    padding-bottom: 15px; 
+    text-align: center;
+}
+
+#rodape-base a {
+    color: #ffffff;
+    text-decoration: none;
+    text-decoration-style: none;
+}
+
+#rodape-paginas {
+    background-color: #1659BF;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: bolder;
+    color: #ffffff;
+    padding-top: 15px; 
+    padding-bottom: 15px; 
+    text-align: center;
+    display: block;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+#rodape-paginas a {
+    color: #ffffff;
+    text-decoration: none;
+    text-decoration-style: none;
+}
+
+/* PAGINA DE CONTATO */
+.div-contato {
+    margin: 0 auto;
+    text-align: left;
+    width: 90%;
+}
+
+.entradas-contato {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.input-contato {
+    width: 90%;
+    border-style: none;
+    box-shadow: 2px 2px 2px #00000041; 
+    border-radius: 6px;
+    padding: 6px;
+
+}
+
+#contato-pagina header {
+    font-family: 'Luckiest Guy', cursive;
+    text-align: center;
+    padding-top: 30px;
+    font-size: 32px;
+}
+
+#contato-pagina {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#contato {
+    display: block;
+    margin: 0 auto;
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgba(128, 128, 128, 0.712);
+    max-width: 745px;
+    padding: 15px;
+    margin-top: 30px;
+    margin-bottom: 90px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px #00000080;
+}
+
+#contato form {
+    text-align: center;
+}
+
+#enviar-contato {
+    background-color: #1659BF;
+    color: #ffffff;
+    font-weight: bolder;
+    padding: 5px 15px 5px 15px;
+    border-radius: 6px;
+    border-style: none;
+    box-shadow: 2px 2px 2px #00000080;   
+}
+
+#enviar-contato:hover {
+    cursor: pointer;
+}
+
+#contato-sucesso {
+    display: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: rgb(253, 253, 253);
+    background-color: rgb(4, 129, 62);
+    border-radius: 6px;
+    border-style: none;
+    box-shadow: 2px 2px 2px #00000080;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#contato-sucesso p {
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 26px;
+}
+
+/* PAGINA DO MAPA */
+#mapa-pagina header {
+    font-family: 'Luckiest Guy', cursive;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 32px;
+}
+
+#mapa-pagina {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#mapa {
+    display: block;
+    margin: 0 auto;
+    max-width: 745px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#mapa a {
+    color: #000000;
+    text-decoration: none;
+    text-decoration-style: none;
+}
+
+#mapa li {
+    list-style: none;
+    text-decoration: none;
+    text-decoration-style: none;
+    border-left: 6px solid #1659BF;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bolder;
+}
+
+#mapa ul {
+    padding: 0px;
+}
+
+#mapa p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    padding-bottom: 30px;
+}
+
+#mapa p:last-child {
+    padding-bottom: 90px;
+}
+
+/* PAGINA DE POLITICAS */
+#politicas {
+    text-align: justify;
+    padding-bottom: 60px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#politicas h2 {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#politicas-pagina header {
+    font-family: 'Luckiest Guy', cursive;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 32px;
+}
+
+/* PAGINA DE TERMOS */
+.lista-para p::first-letter {
+    list-style: none;
+    text-decoration: none;
+    text-decoration-style: none;
+    border-left: 6px solid #1659BF;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#termos-pagina header {
+    font-family: 'Luckiest Guy', cursive;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 32px;
+}
+
+#termos {
+    text-align: justify;
+    padding-bottom: 60px; 
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* TERMOS DE NAVEGACAO */
+#termos-navegacao {
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bolder;
+    background-color: rgba(128, 128, 128, 0.527);
+    padding: 6px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#termos-navegacao p {
+    text-align: center;
+}
+
+#termos-navegacao button {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #1659BF;
+    color: #ffffff;
+    font-weight: bolder;
+    padding: 8px 16px 8px 16px;
+    border-radius: 6px;
+    border-style: none;
+    box-shadow: 2px 2px 2px #00000080;
+}
+
+@media(max-widht: 524px) {
+
+    #aplicativo {
+        padding-left: 0px;
+        padding-right: 0x;
+    }
+    
+    #cabecalho-base {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    #entrada-dados p {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    #observacao {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+}

@@ -1,0 +1,42 @@
+<!--
+Criado em 09/2020
+@Autor: Paulo https://github.com/alpdias
+-->
+
+{% extends 'base.html' %}
+{% block title %}Agenda Tributária{% endblock %}
+{% block load %}
+<div id="carregando-fora"></div>
+{% endblock %}
+{% block marcacao %}<span id="marcacao-index"></span>{% endblock %}
+{% block code %}
+<main id="aplicativo">
+    <section id="entrada-dados">
+        <form action="/" method="POST">
+            {% csrf_token %}
+            <div id="formulario-entrada"></div>
+            <span id="var-escondido" style="display: none;">{{ tipo }}</span>
+            <span id="var-erro" style="display: none;">{{ erro }}</span>
+        </form>
+    </section>
+    <section id="saida-dados">
+        <div id="texto-resultado">
+            <textarea name="resultado" id="resultado" cols="90" rows="10">{% for agenda in agenda %}{% for agenda in agenda %}{{ agenda }}{% endfor %}{% endfor %}</textarea>
+            <p id="verificar-link">https://receita.economia.gov.br/acesso-rapido/agenda-tributaria</p>
+            <button id="baixar" onclick="baixar()">DOWNLOAD &#128194;</button>
+            <div id="observacao"></div>
+        </div>
+    </section>
+    <article id="tutorial" class="texto-corpo"></article>
+    <section id="tags-site"></section>
+    <a href="#marcacao-index" id="seta-retorno"><i class="fas fa-sort-up"></i></a>
+</main>
+<div id="termos-navegacao"></div>
+{% endblock %}
+{% block class %}rodape-base{% endblock %}
+{% block link %}
+<a href="privacidade" target="_blank" class="rodape-adicionais">Políticas de Privacidade</a></br>
+<a href="termos" target="_blank" class="rodape-adicionais">Termos de Uso</a></br>
+<a href="contato" target="_blank" class="rodape-adicionais">Contato</a></br>
+<a href="mapa" target="_blank" class="rodape-adicionais">Mapa do Site</a></br>
+{% endblock %}

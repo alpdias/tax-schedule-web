@@ -1,0 +1,38 @@
+<!--
+Criado em 09/2020
+@Autor: Paulo https://github.com/alpdias
+-->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="shortcut icon" href="{% static 'img/ico/agenda.ico' %}" type="image/x-icon">
+        <script src="https://kit.fontawesome.com/cc2118f4fe.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.2/js.cookie.js"></script>
+    </head>
+    <body>
+        {% block load %}{% endblock %}
+        {% block marcacao %}{% endblock%}
+        <header id="cabecalho-base">
+            <h1><a href="/" id="link-navegacao">AGENDA TRIBUTÁRIA</a></h1>
+            <p>Faça o download da agenda tributária de forma rápida e prática!</p>
+            <p>{% block mapa %}{% endblock %}</p>
+        </header>
+            {% block code %}{% endblock %}
+        <footer id="{% block class %}rodape-base{% endblock %}">
+            {% block link %}{% endblock %}
+            COPYRIGHT &copy; 2020 | <a href="https://paulodeveloper.netlify.app/" target="_blank">PAULO</a>
+        </footer>
+        <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+        <script src="{% static 'js/FileSaver.min.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>

@@ -4,7 +4,7 @@ Aplicativo web utilizando <strong>Python</strong>, <strong>Django</strong> e <st
 
 <strong>Disponível no meu portifólio:</strong> https://paulodeveloper.netlify.com/
 
-Andamento: <strong>100%</strong> - Offline
+Andamento: <strong>100%</strong> - Online
 
 <strong>Back-end:</strong> Python | Django</br>
 <strong>Front-end:</strong> Django | JavaScript | HTML5 | CSS3</br>
@@ -40,7 +40,7 @@ Web application using <strong>Python</strong>, <strong>Django</strong> and <stro
 
 <strong>Available in my portfolio:</strong> https://paulodeveloper.netlify.com/
 
-Progress: <strong>100%</strong> - Offline
+Progress: <strong>100%</strong> - Online
 
 <strong>Back-end:</strong> Python | Django</br>
 <strong>Front-end:</strong> Django | JavaScript | HTML5 | CSS3</br>

@@ -7,7 +7,7 @@ Aplicativo web utilizando <strong>Python</strong>, <strong>Django</strong> e <st
 Andamento: <strong>100%</strong> - Online
 
 <strong>Back-end:</strong> Python | Django</br>
-<strong>Front-end:</strong> Django | JavaScript | HTML5 | CSS3</br>
+<strong>Front-end:</strong> Django | JavaScript | JQuery | HTML5 | CSS3</br>
 Microsoft VSCode</br>
 Codificação: -&lowast;- coding: utf-8 -&lowast;-</br>
 pt-BR</br>
@@ -43,7 +43,7 @@ Web application using <strong>Python</strong>, <strong>Django</strong> and <stro
 Progress: <strong>100%</strong> - Online
 
 <strong>Back-end:</strong> Python | Django</br>
-<strong>Front-end:</strong> Django | JavaScript | HTML5 | CSS3</br>
+<strong>Front-end:</strong> Django | JavaScript | JQuery | HTML5 | CSS3</br>
 Microsoft VSCode</br>
 Coding: -&lowast;- coding: utf-8 -&lowast;-</br>
 pt-BR</br>

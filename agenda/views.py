@@ -83,7 +83,7 @@ def pegarURL(mesAgenda, anoAgenda=ano):
     cabecalho = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'} 
     requisicao = requests.get(url, headers=cabecalho)
     
-    # melhorar a perfomace trocar html.parse por html5lib ou lxml (execucao demorando mais de 30s)
+    # melhorar a perfomace trocar html.parser por html5lib ou lxml (execucao demorando mais de 30s)
     soup = BeautifulSoup(requisicao.text, 'html5lib')
     
     corpo = soup.find('div', {'id': 'parent-fieldname-text'}) 
@@ -125,7 +125,7 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
         cabecalho = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
         requisicao = requests.get(url, headers=cabecalho) 
         
-        # melhorar a perfomace trocar html.parse por html5lib ou lxml (execucao demorando mais de 30s)
+        # melhorar a perfomace trocar html.parser por html5lib ou lxml (execucao demorando mais de 30s)
         soup = BeautifulSoup(requisicao.text, 'html5lib') 
         
         corpo = soup.find('div', {'id': 'parent-fieldname-text'}) 

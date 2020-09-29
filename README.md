@@ -27,6 +27,7 @@ pt-BR</br>
  > pip install django</br>
  > pip install bs4</br>
  > pip install requests</br>
+ > pip install html5lib</br>
  
  </br>
 
@@ -63,6 +64,7 @@ pt-BR</br>
  > pip install django</br>
  > pip install bs4</br>
  > pip install requests</br>
+ > pip install html5lib</br>
  
  </br>
 

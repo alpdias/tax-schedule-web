@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = key
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -124,6 +124,6 @@ STATIC_URL = '/static/'
 EMAIL_BACKED = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = secret.hostUser
-EMAIL_HOST_PASSWORD = secret.hostPWD
+EMAIL_HOST_USER = hostUser
+EMAIL_HOST_PASSWORD = hostPWD
 EMAIL_PORT = '2525'

@@ -82,7 +82,10 @@ def pegarURL(mesAgenda, anoAgenda=ano):
     url = f'https://receita.economia.gov.br/acesso-rapido/agenda-tributaria/agenda-tributaria-{anoAgenda}/agenda-tributaria-{mesAgenda}-{anoAgenda}/agenda-tributaria-{mesAgenda}-{anoAgenda}'
     cabecalho = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'} 
     requisicao = requests.get(url, headers=cabecalho)
-    soup = BeautifulSoup(requisicao.text, 'html.parser')
+    
+    # melhorar a perfomace trocar html.parse por html5lib ou lxml (execucao demorando mais de 30s)
+    soup = BeautifulSoup(requisicao.text, 'html5lib')
+    
     corpo = soup.find('div', {'id': 'parent-fieldname-text'}) 
     elementos = corpo.find('ul')
     links =  elementos.findAll('a', href=True)
@@ -121,7 +124,10 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
         url = v
         cabecalho = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
         requisicao = requests.get(url, headers=cabecalho) 
-        soup = BeautifulSoup(requisicao.text, 'html.parser') 
+        
+        # melhorar a perfomace trocar html.parse por html5lib ou lxml (execucao demorando mais de 30s)
+        soup = BeautifulSoup(requisicao.text, 'html5lib') 
+        
         corpo = soup.find('div', {'id': 'parent-fieldname-text'}) 
         elemento = corpo.findAll('tbody') 
         eventosConteudo = []

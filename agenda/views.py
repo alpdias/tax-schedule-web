@@ -5,14 +5,17 @@ Criado em 09/2020
 @Autor: Paulo https://github.com/alpdias
 '''
 
+# bibliotecas django
+from django.conf import settings
 from django.shortcuts import render
 from django.http import HttpResponse
-import requests
-from bs4 import BeautifulSoup
-from datetime import date
-from datetime import datetime, timedelta
 from django.core.mail import send_mail
-from django.conf import settings
+
+# bibliotecas externas
+import requests
+from datetime import date
+from bs4 import BeautifulSoup
+from datetime import datetime, timedelta
 
 atual = date.today()
 mes = atual.month
@@ -78,8 +81,8 @@ def pegarURL(mesAgenda, anoAgenda=ano):
     :param ano: Ano de referencia
     return: Retorna um dicionario com os dias e as url's dos eventos da agenda
     """
-
-    url = f'https://receita.economia.gov.br/acesso-rapido/agenda-tributaria/agenda-tributaria-{anoAgenda}/agenda-tributaria-{mesAgenda}-{anoAgenda}/agenda-tributaria-{mesAgenda}-{anoAgenda}'
+    
+    url = f'https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-{anoAgenda}/{mesAgenda}-{anoAgenda}/agenda-tributaria-{mesAgenda}-{anoAgenda}'
     cabecalho = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'} 
     requisicao = requests.get(url, headers=cabecalho)
     

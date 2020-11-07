@@ -15,9 +15,11 @@ let anteriorNome = mesNome[(anterior - 1)]; // variavel com o nome do mes anteri
 let proximoNome = mesNome[(proximo - 1)]; // variavel com o nome do proximo mes
 
 function preLoad() {
+
     if (document.querySelector('#carregando-fora') === null) {
 
     } else {
+
         document.querySelector('#carregando-fora').innerHTML = `\
             <div id="carregamento-dentro">\
                 <div id="carregamento-interno">\
@@ -25,17 +27,23 @@ function preLoad() {
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;carregando...</p>\
                 </div>\
             </div>`;
+
     };
+
 };
 
 function carregamento() {
+
     document.querySelector('#carregando-fora').style.display = 'block';
+
 };
 
 function entrada() { // funçao para inserior o HTML de entrada
+
     if (document.querySelector('#formulario-entrada') === null) {
 
     } else {
+
         document.querySelector('#formulario-entrada').innerHTML = `\
             <p>Gere um arquivo de texto com a agenda tributária da receita federal no modelo csv para download ou um arquivo para integrar no calendário do Microsoft Outlook</p>
             <label for="opcoes">Mês referência &#128198;</label>\
@@ -64,10 +72,13 @@ function entrada() { // funçao para inserior o HTML de entrada
             <div>\
                 <button type="submit" id="enviar-entrada" onclick="carregamento()">GERAR &#128195;</button>\  
             </div>`;
+
     };
+
 };
 
 function verificarErro() { // funcao para verificar a entrada de erro no back-end
+
     if (document.querySelector('#var-erro') === null) {  
 
     } else {
@@ -75,34 +86,44 @@ function verificarErro() { // funcao para verificar a entrada de erro no back-en
         let tipoErro = document.querySelector('#var-erro').textContent;
 
         if (tipoErro === 404) {
+
         document.querySelector('#resultado').style.color = 'red';
+
         } else {};
 
     };
+
 };
 
 function verificarURL() { // funcao para retornar a url certa
+
     let ano = data.getFullYear();
     let selecaoMes = document.querySelector('#mes-referencia');
     let selecionado = selecaoMes.options[selecaoMes.selectedIndex].value;
     
-    document.querySelector('#verificar-link').innerHTML = `https://receita.economia.gov.br/acesso-rapido/agenda-tributaria/agenda-tributaria-${ano}/agenda-tributaria-${(mesNome[(selecionado - 1)]).toLowerCase()}-${ano}/agenda-tributaria-${(mesNome[(selecionado -1)]).toLowerCase()}-${ano}`;
+    document.querySelector('#verificar-link').innerHTML = `https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-${ano}/${(mesNome[(selecionado -1)]).toLowerCase()}-${ano}/agenda-tributaria-${(mesNome[(selecionado -1)]).toLowerCase()}-${ano}`;
+
 };
 
 function baixar() { // funcao para baixar o documento
+
     let tipoSelecionado = document.querySelector('#var-escondido').textContent;
     let tipoDoc = '';
 
     if (tipoSelecionado === 'ponto-virgula') {
+
         tipoDoc = '.txt';
+
     } else {
+
         tipoDoc = '.csv';
+
     };
 
     let textoArea = document.querySelector('#resultado').value;
     let titulo = 'agenda';
 
-    let blob = new Blob([textoArea], 
+    let blob = new Blob([textoArea],
         {
             type: 'text/plain;charset=utf-8' 
         });
@@ -110,21 +131,27 @@ function baixar() { // funcao para baixar o documento
     saveAs(blob, titulo + `${tipoDoc}`);
 
     tipoDoc = '';
+
 };
 
 function observacao() {
     if (document.querySelector('#observacao') === null) {
 
     } else {
+
         document.querySelector('#observacao').innerHTML = `\
             <p><strong>Nota:</strong> O intuito desse projeto é totalmente para estudos e aprendizagem, abdicando-se de qualquer responsabilidade quanto ao uso dos dados gerados, a fonte utilizada para a obter os dados é o site (http://receita.economia.gov.br/acesso-rapido/agenda-tributaria) que não tem nenhuma ligação com esse projeto.</p>`;
+
     };
+
 };
 
 function tutorial() { // funçao para inserior o HTML de tutorial
+
     if (document.querySelector('#tutorial') === null) {
 
     } else {
+
         document.querySelector('#tutorial').innerHTML = `\
             <div>\
                 <h1>Como integrar ao calendário do Microsoft Outlook!?</h1>\
@@ -180,31 +207,43 @@ function tutorial() { // funçao para inserior o HTML de tutorial
                 <img src="../../static/img/tutorial/passo-14.jpg" alt="agenda tributaria da receita federal integraçao com o calendario do microsoft outlook" class="img-tutorial">\
                 <span class="tabulacao"></span>\
             </div>`;
+
     };
+
 };
 
 function tagSite() { // funçao para inserir as TAG's no HTML
+
     if (document.querySelector('#tags-site') === null) {
 
     } else {
+
         document.querySelector('#tags-site').innerHTML = `\
             <div>#agenda #calendario #tributaria #receitafederal #agendatributaria #darf #microsoftoutlook</div>`;
+
     };
+
 };
 
 function termosNavegacao() {
+
     if (document.querySelector('#termos-navegacao') === null) {
 
     } else {
+
         document.querySelector('#termos-navegacao').innerHTML = `\
             <p>Utilizamos cookies e tecnologias semelhantes de acordo com a nossa <a href="privacidade" target="_blank">Política de Privacidade</a> e <a href="termos" target="_blank">Termos de Uso</a>, ao continuar navegando você concorda com essas condições. &nbsp;&nbsp;&nbsp;&nbsp;<button id="fechar-cookies">OK</button></p>`;
+
     };
+
 };
 
 function privacidade() {
+
     if (document.querySelector('#politicas') === null) {
 
     } else {
+
         document.querySelector('#politicas').innerHTML = `\
             <article>\
                 <p>A sua privacidade é importante para nós. É política do Agenda Tributária respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site <a href="/">Agenda Tributária</a>, e outros sites que possuímos e operamos.</p>\
@@ -255,13 +294,17 @@ function privacidade() {
                 <p>Esperemos que esteja esclarecido e, como mencionado anteriormente, se houver algo que você não tem certeza se precisa ou não, geralmente é mais seguro deixar os cookies ativados, caso interaja com um dos recursos que você usa em nosso site.</p>\
                 <p>Esta política é efetiva a partir de <strong>Setembro</strong>/<strong>2020</strong>.</p>\
             </article>`;
+
     };
+
 };
 
 function termosUso() {
+
     if (document.querySelector('#termos') === null) {
 
     } else {
+
         document.querySelector('#termos').innerHTML = `\
             <article>\
                 <h2>1. Termos</h2>\
@@ -292,13 +335,17 @@ function termosUso() {
                 <h3>Lei aplicável</h3>\
                 <p>Estes termos e condições são regidos e interpretados de acordo com as leis do Agenda Tributária e você se submete irrevogavelmente à jurisdição exclusiva dos tribunais naquele estado ou localidade.</p>\
             </article>`;
+
     };
+
 };
 
 function carregarContato() {
+
     if (document.querySelector('#carregar-contato') === null) {
 
     } else {
+
         document.querySelector('#contato-sucesso').innerHTML = '\
             <p>Obrigado por entrar em contato, retornaremos em breve!!</p>';
 
@@ -324,30 +371,41 @@ function carregarContato() {
             <div id="div-enviar-contato" class="entradas-contato">\
                 <input type="submit" name="enviar-contato" id="enviar-contato" value="ENVIAR&nbsp; &#128236;">\
             </div>`;
+
     };
+
 };
 
 function contatoSucesso() {
+
     if (document.querySelector('#contato-pagina') === null) {
 
     } else {
+
         let sucesso = document.querySelector('#msg-contato').textContent;
 
         if (sucesso == 1020) {
+
             document.querySelector('#contato-sucesso').style.display = 'block';
 
             setTimeout(function() { 
+
                 document.querySelector('#contato-sucesso').style.display = 'none';  
+
             }, 3000);
             
         } else {};
+
     };
+
 };
 
 function mapa() {
+
     if (document.querySelector('#mapa') === null) {
 
     } else {
+
         document.querySelector('#mapa').innerHTML = `\
             <ul>\
                 <li>&nbsp;&nbsp;<a href="/">Agenda Tributária</a></li>\
@@ -361,7 +419,9 @@ function mapa() {
                 <li>&nbsp;&nbsp;<a href="/mapa">Mapa do Site</a></li>\
                     <p>Mapa das páginas do site, detalhando o contéudo de cada página de forma breve e resumida.</p>\
             </ul>`;
+
     };
+
 };
 
 // FUNCOES JAVASCRIPT
@@ -382,12 +442,18 @@ mapa();
 // FUNCOES JQUERY
 
 $(document).ready(function($) {
+
     if (Cookies.get('hide-div') == 20204005090) {
+
         $('#termos-navegacao').remove();
+
     };
 
     $('#fechar-cookies').click(function() {
+
         $('#termos-navegacao').remove();
         Cookies.set('hide-div', 20204005090);
+
     });
+    
 });

@@ -135,6 +135,7 @@ function baixar() { // funcao para baixar o documento
 };
 
 function observacao() {
+    
     if (document.querySelector('#observacao') === null) {
 
     } else {

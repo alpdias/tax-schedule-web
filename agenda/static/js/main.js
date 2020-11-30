@@ -87,7 +87,7 @@ function verificarErro() { // funcao para verificar a entrada de erro no back-en
 
         if (tipoErro === 404) {
 
-        document.querySelector('#resultado').style.color = 'red';
+            document.querySelector('#resultado').style.color = 'red';
 
         } else {};
 
@@ -140,8 +140,7 @@ function observacao() {
 
     } else {
 
-        document.querySelector('#observacao').innerHTML = `\
-            <p><strong>Nota:</strong> O intuito desse projeto é totalmente para estudos e aprendizagem, abdicando-se de qualquer responsabilidade quanto ao uso dos dados gerados, a fonte utilizada para a obter os dados é o site (http://receita.economia.gov.br/acesso-rapido/agenda-tributaria) que não tem nenhuma ligação com esse projeto.</p>`;
+        document.querySelector('#observacao').innerHTML = `<p><strong>Nota:</strong> O intuito desse projeto é totalmente para estudos e aprendizagem, abdicando-se de qualquer responsabilidade quanto ao uso dos dados gerados, a fonte utilizada para a obter os dados é o site (http://receita.economia.gov.br/acesso-rapido/agenda-tributaria) que não tem nenhuma ligação com esse projeto.</p>`;
 
     };
 
@@ -219,8 +218,7 @@ function tagSite() { // funçao para inserir as TAG's no HTML
 
     } else {
 
-        document.querySelector('#tags-site').innerHTML = `\
-            <div>#agenda #calendario #tributaria #receitafederal #agendatributaria #darf #microsoftoutlook</div>`;
+        document.querySelector('#tags-site').innerHTML = `<div>#agenda #calendario #tributaria #receitafederal #agendatributaria #darf #microsoftoutlook</div>`;
 
     };
 
@@ -232,8 +230,7 @@ function termosNavegacao() {
 
     } else {
 
-        document.querySelector('#termos-navegacao').innerHTML = `\
-            <p>Utilizamos cookies e tecnologias semelhantes de acordo com a nossa <a href="privacidade" target="_blank">Política de Privacidade</a> e <a href="termos" target="_blank">Termos de Uso</a>, ao continuar navegando você concorda com essas condições. &nbsp;&nbsp;&nbsp;&nbsp;<button id="fechar-cookies">OK</button></p>`;
+        document.querySelector('#termos-navegacao').innerHTML = `<p>Utilizamos cookies e tecnologias semelhantes de acordo com a nossa <a href="privacidade" target="_blank">Política de Privacidade</a> e <a href="termos" target="_blank">Termos de Uso</a>, ao continuar navegando você concorda com essas condições. &nbsp;&nbsp;&nbsp;&nbsp;<button id="fechar-cookies">OK</button></p>`;
 
     };
 

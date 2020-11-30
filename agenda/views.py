@@ -27,9 +27,9 @@ mesProximo = (mes + 1)
 def mesNome(mesNumero):
 
     """
-    -> Retornar o nome do mes equivalente ao numero
-    :param mes: Numero do mes
-    :return: Nome do mes
+    -> Retornar o nome do mes equivalente ao numero\
+    \n:param mes: Numero do mes\
+    \n:return: Nome do mes\
     """
 
     mesNome = ''
@@ -76,10 +76,10 @@ def mesNome(mesNumero):
 def pegarURL(mesAgenda, anoAgenda=ano):
 
     """
-    -> Obtem as url's dos dias da agenda tributaria
-    :param mes: Mes de referencia
-    :param ano: Ano de referencia
-    return: Retorna um dicionario com os dias e as url's dos eventos da agenda
+    -> Obtem as url's dos dias da agenda tributaria\
+    \n:param mes: Mes de referencia\
+    \n:param ano: Ano de referencia\
+    \n:return: Retorna um dicionario com os dias e as url's dos eventos da agenda
     """
     
     url = f'https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-{anoAgenda}/{mesAgenda}-{anoAgenda}/agenda-tributaria-{mesAgenda}-{anoAgenda}'
@@ -96,7 +96,6 @@ def pegarURL(mesAgenda, anoAgenda=ano):
     dicio = {}
 
     for a in links:
-        
         caminho = a['href'] 
         dia = a.text.strip() 
         dicio[dia] = f'{caminho}'
@@ -107,10 +106,10 @@ def pegarURL(mesAgenda, anoAgenda=ano):
 def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
 
     """
-    -> Obtem os eventos da agenda tributaria
-    :param refMes: Mes de referencia
-    :param refAno: Ano de referencia
-    return: Retorna uma lista com os eventos da agenda tributaria
+    -> Obtem os eventos da agenda tributaria\
+    \n:param refMes: Mes de referencia\
+    \n:param refAno: Ano de referencia\
+    \n:return: Retorna uma lista com os eventos da agenda tributaria\
     """
 
     if refMes < 10:
@@ -127,7 +126,6 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
         diaEventos.append(k)
 
     for k, v in calendario.items():
-        
         url = v
         cabecalho = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
         requisicao = requests.get(url, headers=cabecalho) 
@@ -140,7 +138,6 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
         eventosConteudo = []
 
         for i in elemento:       
-            
             item = i.findAll('td')
             quantidade = len(item)
 
@@ -148,9 +145,7 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                 pass
             
             else:
-                
                 for i in item:
-                    
                     itemTexto = (i.text).replace('\xa0','').replace('\n','').replace(';','').replace(',','')
                     eventosConteudo.append(itemTexto)
 
@@ -185,12 +180,10 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                     '2469', '9100', '9222', '7122', '4983', '4990', '2852', '2879', '2100']
 
         if tipoDoc == 'virgula':
-
             if tipoAtv == 'S':
                 while qtd > 0:
                     
                     for k, v in conteudo.items():
-                        
                         d = f'{k}/{mesFormat}/{refAno}'
                         data = datetime.strptime(d, '%d/%m/%Y').date()
                         intervalo = timedelta(3)
@@ -198,7 +191,6 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                         alerta = alerta.strftime('%d/%m/%Y')
 
                         if v[0] in servico:
-                            
                             resultado.append(f'{v[0]}, {k}/{mesFormat}/{refAno}, {k}/{mesFormat}/{refAno}, Verdadeiro, Verdadeiro, {alerta}, Competência: {v[2]}' + ' ' * 184 + f'https://receita.economia.gov.br/acesso-rapido/agenda-tributaria, {v[1]}\n')
                             
                             del conteudo[k][0]
@@ -208,7 +200,6 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                             qtd = (qtd - 3)
                         
                         else:
-                            
                             del conteudo[k][0]
                             del conteudo[k][0]
                             del conteudo[k][0]
@@ -216,10 +207,9 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                             qtd = (qtd - 3)
             
             elif tipoAtv == 'C':
-                while qtd > 0:
+                while qtd > 0:       
                     
                     for k, v in conteudo.items():
-                        
                         d = f'{k}/{mesFormat}/{refAno}'
                         data = datetime.strptime(d, '%d/%m/%Y').date()
                         intervalo = timedelta(3)
@@ -227,7 +217,6 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                         alerta = alerta.strftime('%d/%m/%Y')
 
                         if v[0] in comercio:
-                            
                             resultado.append(f'{v[0]}, {k}/{mesFormat}/{refAno}, {k}/{mesFormat}/{refAno}, Verdadeiro, Verdadeiro, {alerta}, Competência: {v[2]}' + ' ' * 184 + f'https://receita.economia.gov.br/acesso-rapido/agenda-tributaria, {v[1]}\n')
                             
                             del conteudo[k][0]
@@ -237,7 +226,6 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                             qtd = (qtd - 3)
                         
                         else:
-                            
                             del conteudo[k][0]
                             del conteudo[k][0]
                             del conteudo[k][0]
@@ -248,7 +236,6 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                 while qtd > 0:
                     
                     for k, v in conteudo.items():
-                        
                         d = f'{k}/{mesFormat}/{refAno}'
                         data = datetime.strptime(d, '%d/%m/%Y').date()
                         intervalo = timedelta(3)
@@ -256,7 +243,6 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                         alerta = alerta.strftime('%d/%m/%Y')
 
                         if v[0] in industria:
-                            
                             resultado.append(f'{v[0]}, {k}/{mesFormat}/{refAno}, {k}/{mesFormat}/{refAno}, Verdadeiro, Verdadeiro, {alerta}, Competência: {v[2]}' + ' ' * 184 + f'https://receita.economia.gov.br/acesso-rapido/agenda-tributaria, {v[1]}\n')
                             
                             del conteudo[k][0]
@@ -266,7 +252,6 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                             qtd = (qtd - 3)
                         
                         else:
-                            
                             del conteudo[k][0]
                             del conteudo[k][0]
                             del conteudo[k][0]
@@ -274,10 +259,9 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                             qtd = (qtd - 3)
             
             elif tipoAtv == 'F':
-                while qtd > 0:
+                while qtd > 0: 
                     
                     for k, v in conteudo.items():
-                        
                         d = f'{k}/{mesFormat}/{refAno}'
                         data = datetime.strptime(d, '%d/%m/%Y').date()
                         intervalo = timedelta(3)
@@ -285,7 +269,6 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                         alerta = alerta.strftime('%d/%m/%Y')
 
                         if v[0] in financeiro:
-                            
                             resultado.append(f'{v[0]}, {k}/{mesFormat}/{refAno}, {k}/{mesFormat}/{refAno}, Verdadeiro, Verdadeiro, {alerta}, Competência: {v[2]}' + ' ' * 184 + f'https://receita.economia.gov.br/acesso-rapido/agenda-tributaria, {v[1]}\n')
                             
                             del conteudo[k][0]
@@ -295,7 +278,6 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                             qtd = (qtd - 3)
                         
                         else:
-                            
                             del conteudo[k][0]
                             del conteudo[k][0]
                             del conteudo[k][0]
@@ -306,7 +288,6 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                 while qtd > 0:
                     
                     for k, v in conteudo.items():
-                        
                         d = f'{k}/{mesFormat}/{refAno}'
                         data = datetime.strptime(d, '%d/%m/%Y').date()
                         intervalo = timedelta(3)
@@ -350,9 +331,7 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                 while qtd > 0:
 
                     for k, v in conteudo.items():
-                        
                         if v[0] in comercio:
-                            
                             resultado.append(f'{k}/{mesFormat}/{refAno}; {v[0]}; {v[1]}; {v[2]}\n')
                             
                             del conteudo[k][0]
@@ -361,8 +340,7 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                             
                             qtd = (qtd - 3)
 
-                        else:
-                            
+                        else: 
                             del conteudo[k][0]
                             del conteudo[k][0]
                             del conteudo[k][0]
@@ -373,9 +351,7 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                 while qtd > 0:
 
                     for k, v in conteudo.items():
-                        
                         if v[0] in industria:
-                            
                             resultado.append(f'{k}/{mesFormat}/{refAno}; {v[0]}; {v[1]}; {v[2]}\n')
                             
                             del conteudo[k][0]
@@ -385,7 +361,6 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                             qtd = (qtd - 3)
 
                         else:
-                            
                             del conteudo[k][0]
                             del conteudo[k][0]
                             del conteudo[k][0]
@@ -396,9 +371,7 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                 while qtd > 0:
 
                     for k, v in conteudo.items():
-                        
                         if v[0] in financeiro:
-                            
                             resultado.append(f'{k}/{mesFormat}/{refAno}; {v[0]}; {v[1]}; {v[2]}\n')
                             
                             del conteudo[k][0]
@@ -408,7 +381,6 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                             qtd = (qtd - 3)
 
                         else:
-                            
                             del conteudo[k][0]
                             del conteudo[k][0]
                             del conteudo[k][0]
@@ -419,7 +391,6 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
                 while qtd > 0:
 
                     for k, v in conteudo.items():
-                        
                         resultado.append(f'{k}/{mesFormat}/{refAno}; {v[0]}; {v[1]}; {v[2]}\n')
                         
                         del conteudo[k][0]
@@ -435,8 +406,8 @@ def agenda(refMes, tipoDoc, tipoAtv, refAno=ano):
 def saida(mesRef, tipoRef, tipoEmp):
     
     """
-    -> Faz a requisicao dos eventos para a agenda tributaria
-    :return: Retorna um dicionario com o a agenda tributaria
+    -> Faz a requisicao dos eventos para a agenda tributaria\
+    \n:return: Retorna um dicionario com o a agenda tributaria\
     """
     
     requisicao = agenda(mesRef, tipoRef, tipoEmp)
@@ -449,7 +420,6 @@ def saida(mesRef, tipoRef, tipoEmp):
         agendaLista.append(i)
     
     if tipoRef == 'virgula':
-        
         cabecalho = ['Assunto, Data de inicio, Data de termino, O dia inteiro, Lembrete ativado, Data do lembrete, Descricao, Local\n']
         agendaLista.insert(0, cabecalho)
         
@@ -464,24 +434,21 @@ def saida(mesRef, tipoRef, tipoEmp):
 def inicio(request):
     
     """
-    -> Funcao para renderizar o aplicativo principal
-    :param request: Requisicao em HTML
-    :return: Retorna a renderizacao da tela inicial do aplicativo e o conteudo da requisicao
+    -> Funcao para renderizar o aplicativo principal\
+    \n:param request: Requisicao em HTML\
+    \n:return: Retorna a renderizacao da tela inicial do aplicativo e o conteudo da requisicao\
     """
     
     if request.method == 'POST':
-        
         mesRef = int(request.POST.get(['mes-referencia'][0]))
         tipoRef = request.POST.get('tipo')
         tipoEmp = request.POST.get(['tipo-empresa'][0])
 
         try:
-            
             calendario = saida(mesRef, tipoRef, tipoEmp)
             calendario['tipo'] = tipoRef
 
         except:
-            
             msgErro = 'Mês de referência inválido, ou conteúdo indisponível!!'
             tab = ' '
             
@@ -502,8 +469,8 @@ def inicio(request):
 def privacidade(request):
 
     """
-    -> Funcao para renderizar a pagina de privacidade do site
-    :return: Retorna a renderizacao da pagina de privacidade do site
+    -> Funcao para renderizar a pagina de privacidade do site\
+    \n:return: Retorna a renderizacao da pagina de privacidade do site\
     """
 
     return render(request, 'agenda/privacidade.html')
@@ -512,8 +479,8 @@ def privacidade(request):
 def termos(request):
 
     """
-    -> Funcao para renderizar a pagina de termos do site
-    :return: Retorna a renderizacao da pagina de termos do site
+    -> Funcao para renderizar a pagina de termos do site\
+    \n:return: Retorna a renderizacao da pagina de termos do site\
     """
 
     return render(request, 'agenda/termos.html')
@@ -522,12 +489,11 @@ def termos(request):
 def contato(request):
 
     """
-    -> Funcao para receber informações de contato e enviar email
-    :return: Retorna a renderizacao da tela de contato
+    -> Funcao para receber informações de contato e enviar email\
+    \n:return: Retorna a renderizacao da tela de contato\
     """
 
     if request.method == 'POST':
-        
         assunto = 'Agenda Tributária'
         nome = request.POST.get('nome-contato')
         email = request.POST.get('email-contato')
@@ -556,8 +522,8 @@ def contato(request):
 def mapa(request):
 
     """
-    -> Funcao para renderizar a pagina do mapa do site
-    :return: Retorna a renderizacao da pagina do mapa do site
+    -> Funcao para renderizar a pagina do mapa do site\
+    \n:return: Retorna a renderizacao da pagina do mapa do site\
     """
     
     return render(request, 'agenda/mapa.html')

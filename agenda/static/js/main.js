@@ -6,6 +6,11 @@ Criado em 09/2020
 let data = new Date; // variavel com a data
 let atual = (data.getMonth() + 1); // variavel com o mes atual
 let anterior = ((data.getMonth() - 1) + 1); // variavel com o mes anterior
+
+if (anterior == 0) {
+    anterior = 12
+};
+
 let proximo = ((data.getMonth() + 1) + 1); // variavel com o proximo mes
 
 const mesNome = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']; // lista com os nomes dos meses

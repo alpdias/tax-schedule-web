@@ -34,6 +34,12 @@ def mesNome(mesNumero):
 
     mesNome = ''
 
+    if mes == 0:
+        mesNome = 'dezembro'
+
+    elif mes == 1:
+        mesNome = 'janeiro'
+
     if mesNumero == 1:
         mesNome = 'janeiro'
         
@@ -82,7 +88,13 @@ def pegarURL(mesAgenda, anoAgenda=ano):
     \n:return: Retorna um dicionario com os dias e as url's dos eventos da agenda
     """
     
-    url = f'https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-{anoAgenda}/{mesAgenda}-{anoAgenda}/agenda-tributaria-{mesAgenda}-{anoAgenda}'
+    if mesAgenda == 'dezembro' and anoAgenda == 2021:
+        anoAgenda = 2020
+        url = f'https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-{anoAgenda}/{mesAgenda}-{anoAgenda}/agenda-tributaria-{mesAgenda}-{anoAgenda}' # url para a requisiçao no site
+    
+    else:
+        url = f'https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria/agenda-tributaria-{anoAgenda}/agenda-tributaria-{mesAgenda}-{anoAgenda}/agenda-tributaria-{mesAgenda}-{anoAgenda}' # url para a requisiçao no site
+    
     cabecalho = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'} 
     requisicao = requests.get(url, headers=cabecalho)
     

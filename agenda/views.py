@@ -459,7 +459,7 @@ def inicio(request):
         try:
             calendario = saida(mesRef, tipoRef, tipoEmp)
             calendario['tipo'] = tipoRef
-
+        
         except:
             msgErro = 'Mês de referência inválido, ou conteúdo indisponível!!'
             tab = ' '
@@ -471,7 +471,7 @@ def inicio(request):
 \n\n{tab * 35}{msgErro}')
             
             calendario['erro'] = 404
-
+        
     else:
         calendario = {}
 
